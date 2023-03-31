@@ -1,0 +1,28 @@
+.main {}
+
+.triangle {
+  position: relative;
+  width: 180px;
+  height: 160px;
+  margin: 100px 0;
+  background-image: url(http://localhost:3000/static/media/bg-triangle.77c6ca418d3751d8f717.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  
+  .circle {
+    position: absolute;
+
+    &.rock {
+      top: -55px;
+      left: -55px;
+    }
+    &.paper {
+      bottom: -55px;
+      left: 32.5px;
+    }
+    &.scissors {
+      top: -55px;
+      right: -55px;
+    }
+  }
+}

@@ -1,0 +1,38 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  width: 40%;
+  padding: 10px 15px;
+  margin-top: 35px;
+  border-radius: 10px;
+  border: 1px solid #fff;
+  color: #fff;
+}
+
+.game-name {
+  margin: 0;
+  line-height: 1;
+  text-align: left;
+  text-transform: uppercase;
+  font-size: 1.5em;
+}
+
+.score {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 0 25px;
+  background-color: #fff;
+  border-radius: 5px;
+  color: #020024;
+  text-transform: uppercase;
+
+  &-title {
+    font-size: 0.8em;
+  } 
+
+  &-number {
+    font-size: 2em;
+  }
+}
