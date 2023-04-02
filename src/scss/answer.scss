@@ -1,0 +1,36 @@
+.answer {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+
+  > * {
+    text-align: center;
+    text-transform: uppercase;
+  }
+}
+
+.circle {
+  display: inline-block;
+  &:hover {
+    box-shadow: none;
+  }
+}
+
+.player {
+  &-1 {
+    margin-right: 40px;
+  }
+
+  &-2 {
+    margin-left: 40px;
+  }
+
+  .title {
+    color: #fff;
+  }
+}
+
+.winner-title {
+  color: #fff;
+  margin-bottom: 10px;
+}
