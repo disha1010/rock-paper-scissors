@@ -4,7 +4,7 @@ import './scss/content.scss';
 import Header from './components/header';
 import ChooseMap from './components/choose-map';
 import Answer from './components/answer';
-// import WaitingMap from './components/waiting-map';
+import WaitingMap from './components/waiting-map';
 import RulesButton from './components/rules-button';
 import {ORIGINAL_RSP} from './cards.js';
 
@@ -17,12 +17,14 @@ class App extends React.Component {
       answerText: '',
       selectedCard: '',
       houseCard: '',
+      loaded: false,
     }
   }
 
   cardSelected = (cardSelected) => {
     let houseCard = CARDS_LIST[Math.floor(Math.random()*CARDS_LIST.length)];
     let answer = '';
+
     if (ORIGINAL_RSP[cardSelected].power > ORIGINAL_RSP[houseCard].power) {
       answer = 'You win';
     } else if (ORIGINAL_RSP[cardSelected].power < ORIGINAL_RSP[houseCard].power) {
@@ -37,9 +39,7 @@ class App extends React.Component {
       houseCard: houseCard,
     });
 
-    console.log(cardSelected);
-    console.log(houseCard);
-    console.log(answer);
+    setTimeout(() => this.setState({loaded: true}), 3000);
   }
 
   playAgain = () => {
@@ -47,6 +47,7 @@ class App extends React.Component {
       answerText: '',
       selectedCard: '',
       houseCard: '',
+      loaded: false,
     });
   }
 
@@ -56,14 +57,23 @@ class App extends React.Component {
         <Header />        
         {!this.state.selectedCard
           ? <ChooseMap onCardSelected={this.cardSelected} />
-          : <Answer 
-            answerText={this.state.answerText} 
-            selectedCard={this.state.selectedCard}
-            houseCard={this.state.houseCard}
-            onPlayAgain={this.playAgain}
-          />
-        }
-        {/* <WaitingMap /> */}
+          : <>
+              {!this.state.loaded 
+                ? <WaitingMap
+                  selectedCard={this.state.selectedCard}
+                /> 
+                : <Answer 
+                  answerText={this.state.answerText} 
+                  selectedCard={this.state.selectedCard}
+                  houseCard={this.state.houseCard}
+                  onPlayAgain={this.playAgain}
+                />
+              } 
+            </>
+          }
+
+        
+              
         
         <RulesButton />
       </div>

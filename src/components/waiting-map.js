@@ -1,21 +1,22 @@
 import '../scss/circle.scss';
 import '../scss/choose-map.scss';
-import iconPaper from '../images/icon-paper.svg';
-import iconScissors from '../images/icon-scissors.svg';
-import iconRock from '../images/icon-rock.svg';
+import {ORIGINAL_RSP} from '../cards.js';
 
-function WaitingMap() {
+function WaitingMap(props) {
+  const selectedCard = props.selectedCard;
+  const houseCard = props.houseCard;
+
   return (
-    <main className="waiting-map">
-      <div className="player-1">
-        <p>Your picked</p>
-        <div className="circle paper">
-          <img className="icon icon-paper" src={iconPaper} alt="paper icon" />
-        </div>
+    <main className="answer waiting-map">
+      <div className="player player-1">
+        <p className="title">Your picked</p>
+          <div className={`circle ${selectedCard}`}>
+            <img className={`icon icon-${selectedCard}`} src={ORIGINAL_RSP[selectedCard].iconSrc} alt={`${selectedCard} icon`} />
+          </div>
       </div>
-      <div className="player-2">
-        <p>The house picked</p>
-        <div className="circle"></div>
+      <div className="player player-2">
+        <p className="title">The house picked</p>
+          <div className={`circle empty`}></div>
       </div> 
     </main>
   );
