@@ -4,7 +4,7 @@ import '../scss/footer.scss';
 function RulesButton() {
   return (
     <footer className="footer">
-      <button className="button">Rules</button>
+      <button className="button secondary">Rules</button>
     </footer>
   );
 }

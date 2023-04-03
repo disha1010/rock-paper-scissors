@@ -29,4 +29,43 @@
       padding: 12px 18px;
     }
   }
+
+  &.empty {
+    width: 85px;
+    height: 85px;
+    border: none;
+    background-color: #020024;
+  }
+
+  &.winner::after,  
+  &.winner::before {
+    content: "";
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-color: #fff;
+    border-radius: 50%;
+    opacity: 0;
+    animation: growAndFade 3s infinite;
+    z-index: -1;
+  }
+
+  &.winner::after {
+    animation-delay: 0s;    
+  }
+  
+  &.winner::before {
+    animation-delay: 1.5s; 
+  }
+}
+
+@keyframes growAndFade {
+  0% {
+    opacity: .3;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
 }

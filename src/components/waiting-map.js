@@ -16,7 +16,7 @@ function WaitingMap(props) {
       </div>
       <div className="player player-2">
         <p className="title">The house picked</p>
-          <div className={`circle empty`}></div>
+          <div className="circle empty"></div>
       </div> 
     </main>
   );

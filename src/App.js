@@ -39,7 +39,7 @@ class App extends React.Component {
       houseCard: houseCard,
     });
 
-    setTimeout(() => this.setState({loaded: true}), 3000);
+    setTimeout(() => this.setState({loaded: true}), 1000);
   }
 
   playAgain = () => {

@@ -4,4 +4,21 @@
   border-radius: 5px;
   background-color: #020024;
   color: #fff;
+  text-transform: uppercase;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+
+  &.primary {
+    background-color: #fff;
+    color: #020024;
+    &:hover {
+      color: #d44c4c
+    }
+  }
+
+  &.secondary:hover {
+    background-color: #fff;
+    color: #020024;
+  }
 }

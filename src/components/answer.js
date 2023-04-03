@@ -19,17 +19,17 @@ class Answer extends React.Component {
       <main className="answer">
         <div className="player player-1">
           <p className="title">Your picked</p>
-          <div className={`circle ${selectedCard}`}>
+          <div className={`circle ${selectedCard} ${answerText === 'You win' && 'winner'}`}>
             <img className={`icon icon-${selectedCard}`} src={ORIGINAL_RSP[selectedCard].iconSrc} alt={`${selectedCard} icon`} />
           </div>
         </div>
         <div className="play-again">
           <h2 className="winner-title">{answerText}</h2>
-          <button className="button success" onClick={() => this.handlePlayAgain()}>Play again</button>
+          <button className="button primary" onClick={() => this.handlePlayAgain()}>Play again</button>
         </div>
         <div className="player player-2">
           <p className="title">The house picked</p>
-          <div className={`circle ${houseCard}`}>
+          <div className={`circle ${houseCard} ${answerText === 'You lose' && 'winner'}`}>
             <img className={`icon icon-${houseCard}`} src={ORIGINAL_RSP[houseCard].iconSrc} alt={`${houseCard} icon`} />
           </div>
         </div> 
