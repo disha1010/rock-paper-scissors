@@ -1,12 +1,20 @@
+import React from "react";
+
 import '../scss/button.scss';
 import '../scss/footer.scss';
 
-function RulesButton() {
-  return (
-    <footer className="footer">
-      <button className="button secondary">Rules</button>
-    </footer>
-  );
+class RulesButton extends React.Component {
+  handleOpenRulesModal = () => {
+    this.props.onRulesModalOpen();
+  }
+
+  render() {
+    return (
+      <footer className="footer">
+        <button className="button secondary" onClick={() => this.handleOpenRulesModal()}>Rules</button>
+      </footer>
+    );
+  }
 }
 
 export default RulesButton;

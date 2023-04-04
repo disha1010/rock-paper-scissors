@@ -21,4 +21,16 @@
     background-color: #fff;
     color: #020024;
   }
+
+  &.close {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    background-image: url(../images/icon-close.svg);
+    background-repeat: no-repeat;
+    background-color: unset;
+    border: none;
+
+  }
 }

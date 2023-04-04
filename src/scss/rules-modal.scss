@@ -1,0 +1,28 @@
+.rules-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 350px;
+  height: 335px;
+  padding: 30px 20px;
+  background-color: #fff;
+  border-radius: 10px;
+
+  .button {
+    position: absolute;
+    top: 30px;
+    right: 20px;
+  }
+}
+
+.modal-title {
+  text-transform: uppercase;
+  margin: 0 0 40px;
+  line-height: 1;
+}
+
+.rules-image {
+  display: block;
+  margin: 0 auto;
+}

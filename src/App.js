@@ -6,6 +6,7 @@ import ChooseMap from './components/choose-map';
 import Answer from './components/answer';
 import WaitingMap from './components/waiting-map';
 import RulesButton from './components/rules-button';
+import RulesModal from './components/rules-modal';
 import {ORIGINAL_RSP} from './cards.js';
 
 const CARDS_LIST = Object.keys(ORIGINAL_RSP);
@@ -17,7 +18,8 @@ class App extends React.Component {
       answerText: '',
       selectedCard: '',
       houseCard: '',
-      loaded: false,
+      isLoaded: false,
+      isRulesModalOpen: false,
     }
   }
 
@@ -39,7 +41,7 @@ class App extends React.Component {
       houseCard: houseCard,
     });
 
-    setTimeout(() => this.setState({loaded: true}), 1000);
+    setTimeout(() => this.setState({isLoaded: true}), 1000);
   }
 
   playAgain = () => {
@@ -47,9 +49,13 @@ class App extends React.Component {
       answerText: '',
       selectedCard: '',
       houseCard: '',
-      loaded: false,
+      isLoaded: false,
     });
   }
+
+  rulesModalOpen= () => this.setState({isRulesModalOpen: true});
+
+  rulesModalClose = () => this.setState({isRulesModalOpen: false});
 
   render () {
     return (
@@ -58,10 +64,8 @@ class App extends React.Component {
         {!this.state.selectedCard
           ? <ChooseMap onCardSelected={this.cardSelected} />
           : <>
-              {!this.state.loaded 
-                ? <WaitingMap
-                  selectedCard={this.state.selectedCard}
-                /> 
+              {!this.state.isLoaded 
+                ? <WaitingMap selectedCard={this.state.selectedCard} /> 
                 : <Answer 
                   answerText={this.state.answerText} 
                   selectedCard={this.state.selectedCard}
@@ -72,10 +76,9 @@ class App extends React.Component {
             </>
           }
 
-        
-              
-        
-        <RulesButton />
+        <RulesButton onRulesModalOpen={this.rulesModalOpen} />
+
+        { !!this.state.isRulesModalOpen && <RulesModal onRulesModalClose={this.rulesModalClose} /> }
       </div>
     );
   }
