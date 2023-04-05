@@ -5,6 +5,7 @@
 /.pnp
 .pnp.js
 style-guide.md
+.vscode
 
 # testing
 /coverage
