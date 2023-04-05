@@ -27,11 +27,11 @@ class App extends React.Component {
     let houseCard = CARDS_LIST[Math.floor(Math.random()*CARDS_LIST.length)];
     let answer = '';
 
-    if (ORIGINAL_RSP[cardSelected].power > ORIGINAL_RSP[houseCard].power) {
+    if ((cardSelected === 'rock' && houseCard === 'scissors') || (cardSelected === 'paper' && houseCard === 'rock') || (cardSelected === 'scissors' && houseCard === 'paper')) {
       answer = 'You win';
-    } else if (ORIGINAL_RSP[cardSelected].power < ORIGINAL_RSP[houseCard].power) {
+    } else if ((cardSelected === 'rock' && houseCard === 'paper') || (cardSelected === 'paper' && houseCard === 'scissors') || (cardSelected === 'scissors' && houseCard === 'rock')) {
       answer = 'You lose';
-    } else {
+    }  else {
       answer = 'Dead heat';
     }
 

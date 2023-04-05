@@ -12,9 +12,11 @@ class RulesModal extends React.Component {
   render() {
     return (
       <div className="rules-modal">
-        <button className="button close" onClick={() => this.handleCloseRulesModal()}></button>
-        <h2 className="modal-title">Rules</h2>
-        <img src={rulesImage} alt="Rules image" className="rules-image" />
+        <div className="rules-modal-content">
+          <button className="button close" onClick={() => this.handleCloseRulesModal()}></button>
+          <h2 className="modal-title">Rules</h2>
+          <img src={rulesImage} alt="Rules image" className="rules-image" />
+        </div>
       </div>
     );
   }
