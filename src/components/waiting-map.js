@@ -4,7 +4,6 @@ import {ORIGINAL_RSP} from '../cards.js';
 
 function WaitingMap(props) {
   const selectedCard = props.selectedCard;
-  const houseCard = props.houseCard;
 
   return (
     <main className="answer waiting-map">

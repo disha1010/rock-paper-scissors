@@ -20,15 +20,18 @@ class App extends React.Component {
       houseCard: '',
       isLoaded: false,
       isRulesModalOpen: false,
+      score: 1,
     }
   }
 
   cardSelected = (cardSelected) => {
-    let houseCard = CARDS_LIST[Math.floor(Math.random()*CARDS_LIST.length)];
+    let houseCard = CARDS_LIST[Math.floor(Math.random() * CARDS_LIST.length)];
     let answer = '';
+    let scoreCounter = this.state.score;
 
     if ((cardSelected === 'rock' && houseCard === 'scissors') || (cardSelected === 'paper' && houseCard === 'rock') || (cardSelected === 'scissors' && houseCard === 'paper')) {
       answer = 'You win';
+      scoreCounter += 1;
     } else if ((cardSelected === 'rock' && houseCard === 'paper') || (cardSelected === 'paper' && houseCard === 'scissors') || (cardSelected === 'scissors' && houseCard === 'rock')) {
       answer = 'You lose';
     }  else {
@@ -41,7 +44,10 @@ class App extends React.Component {
       houseCard: houseCard,
     });
 
-    setTimeout(() => this.setState({isLoaded: true}), 1000);
+    setTimeout(() => this.setState({
+      isLoaded: true,
+      score: scoreCounter,
+    }), 1000);
   }
 
   playAgain = () => {
@@ -60,7 +66,7 @@ class App extends React.Component {
   render () {
     return (
       <div className="content">
-        <Header />        
+        <Header score={this.state.score} />        
         {!this.state.selectedCard
           ? <ChooseMap onCardSelected={this.cardSelected} />
           : <>
